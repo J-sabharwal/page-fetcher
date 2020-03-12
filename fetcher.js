@@ -9,9 +9,6 @@ request(arg[0], (error, response, body) => {
   //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   //console.log('body:', body); // Print the HTML for the Google homepage.
 
-  fs.writeFile(arg[1], body, (err) => {
-    console.log("Completed")
-  });
+  let stats =  fs.statSync(arg[1]);
+  console.log(`Downloaded and saved ${stats.size} bytes to ${arg[1]}`)
 });
-
-
